@@ -1,5 +1,5 @@
 <template>
-  <loading v-model:active="isLoading"
+  <loading :active="isLoading"
            :can-cancel="false"
            :is-full-page="true"/>
   <div class="container">
@@ -38,6 +38,7 @@ export default {
       filter: '',
       sort: null,
       planets: [],
+      isLoading: false,
       filteredAndSorted: []
     }
   },
@@ -98,6 +99,8 @@ export default {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
+  margin-right: 1rem;
+  margin-left: 1rem;
 }
 
 .main-header {
