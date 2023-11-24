@@ -48,7 +48,6 @@ export default {
   created() {
     this.abortController = new AbortController();
     this.fetchPlanets();
-    this.filteredAndSorted = this.planets;
   },
   beforeUnmount() {
     this.abortController.abort();
@@ -73,7 +72,6 @@ export default {
       const [newPlanets, error] = await swapiService.getPlanets(this.filter, this.abortController.signal);
       if (error == null) {
         this.planets = newPlanets;
-      } else {
         this.filterPlanets();
       }
       this.isLoading = false;
